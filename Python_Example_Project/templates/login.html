@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #222; /* Dark background color */
+            color: #fff; /* Light text color */
+        }
+
+        /* Add styles for your banner */
+        .banner {
+            width: 100%;
+            height: 200px; /* Adjust the height as needed */
+            background: url('/static/images/banner_image.jpg') center/cover no-repeat;
+            /* Use background-size: cover; for a responsive background image */
+        }
+
+        /* Add any additional styles for your content */
+        .container {
+            padding-top: 20px; /* Adjust the padding as needed */
+        }
+
+        .form-signin {
+            max-width: 400px;
+            padding: 15px;
+            margin: auto;
+            margin-top: 50px;
+            background: #333; /* Dark background color for the form */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Adjust the margin as needed */
+        }
+
+        .form-control {
+            background: #444; /* Dark background color for form inputs */
+            color: #fff; /* Light text color for form inputs */
+        }
+
+        .btn-primary {
+            background: #007bff; /* Primary button color */
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3; /* Hover color for primary button */
+            border-color: #0056b3;
+        }
+
+        /* Add styles for the registration link */
+        .register-link {
+            text-align: center;
+            margin-top: 20px; /* Adjust the margin as needed */
+        }
+
+        .register-link a {
+            color: #007bff; /* Link color */
+        }
+
+        .register-link a:hover {
+            color: #0056b3; /* Hover color for the link */
+        }
+    </style>
+    <title>Login</title>
+</head>
+<body class="dark-mode">
+    <!-- Banner section -->
+    <div class="banner"></div>
+
+    <div class="container">
+        <form class="form-signin" method="post" action="/login">
+            {{ form.hidden_tag() }}
+            <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+            <div class="form-group">
+                <label for="{{ form.username.id }}">Username:</label>
+                {{ form.username(class="form-control", required="required") }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password.id }}">Password:</label>
+                {{ form.password(class="form-control", required="required") }}
+            </div>
+            {{ form.submit(class="btn btn-primary btn-block") }}
+        </form>
+
+        <!-- Registration link -->
+        <p class="register-link">Don't have an account? <a href="{{ url_for('register') }}">Register here</a>.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

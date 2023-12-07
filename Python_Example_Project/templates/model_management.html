@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Management</title>
+    <!-- Add your styling or include Bootstrap if needed -->
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Model Management</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li class="alert alert-{{ message[1] }}">{{ message[0] }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Add logic to display available models and switch between them -->
+    </div>
+
+    <!-- Add your scripts or additional styling if needed -->
+</body>
+</html>

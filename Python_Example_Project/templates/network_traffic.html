@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #333; /* Dark background color for dark mode */
+            color: #fff; /* Light text color for dark mode */
+        }
+
+        /* Add styles for your banner */
+        .banner {
+            width: 100%;
+            height: 200px; /* Adjust the height as needed */
+            background: url('/static/images/banner_image.jpg') center/cover no-repeat;
+            /* Use background-size: cover; for a responsive background image */
+        }
+
+        /* Add any additional styles for your content */
+        .container {
+            padding-top: 20px; /* Adjust the padding as needed */
+        }
+
+        /* Add styles for dark mode */
+        .dark-mode {
+            background: #333; /* Dark background color for dark mode */
+            color: #fff; /* Light text color for dark mode */
+        }
+
+        /* Additional styles for the network_traffic page */
+        #packet-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #packet-list li {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .btn-primary {
+            margin-top: 20px; /* Adjust the margin as needed */
+        }
+    </style>
+    <title>Network Traffic</title>
+</head>
+<body class="dark-mode">
+    <!-- Banner section -->
+    <div class="banner"></div>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Network Traffic Page</h1>
+
+        <!-- Updated mock data with additional entries -->
+        <ul id="packet-list">
+            <li>Time: 2023-11-28 08:00:00, Source IP: 192.168.1.2, Destination IP: 203.0.113.5, Protocol: TCP, Length: 342, Info: SYN</li>
+            <li>Time: 2023-11-28 08:01:12, Source IP: 203.0.113.5, Destination IP: 192.168.1.2, Protocol: TCP, Length: 256, Info: SYN/ACK</li>
+            <li>Time: 2023-11-28 08:02:30, Source IP: 192.168.1.2, Destination IP: 203.0.113.5, Protocol: UDP, Length: 128, Info: DNS Query</li>
+            <li>Time: 2023-11-28 08:03:45, Source IP: 203.0.113.5, Destination IP: 192.168.1.2, Protocol: HTTP, Length: 1024, Info: GET /index.html</li>
+            <li>Time: 2023-11-28 08:05:20, Source IP: 192.168.1.2, Destination IP: 203.0.113.5, Protocol: ICMP, Length: 64, Info: Ping Request</li>
+            <li>Time: 2023-11-28 08:06:45, Source IP: 203.0.113.5, Destination IP: 192.168.1.2, Protocol: TCP, Length: 512, Info: Data transfer</li>
+            <li>Time: 2023-11-28 08:08:15, Source IP: 192.168.1.4, Destination IP: 203.0.113.6, Protocol: UDP, Length: 256, Info: DNS Response</li>
+            <li>Time: 2023-11-28 08:10:30, Source IP: 203.0.113.6, Destination IP: 192.168.1.3, Protocol: TCP, Length: 128, Info: SYN</li>
+            <li>Time: 2023-11-28 08:12:45, Source IP: 192.168.1.5, Destination IP: 203.0.113.7, Protocol: HTTP, Length: 768, Info: POST /submit</li>
+            <li>Time: 2023-11-28 08:10:00, Source IP: 192.168.1.3, Destination IP: 203.0.113.7, Protocol: HTTP, Length: 768, Info: POST /login</li>
+            <li>Time: 2023-11-28 08:12:30, Source IP: 203.0.113.8, Destination IP: 192.168.1.5, Protocol: TCP, Length: 320, Info: SYN</li>
+            <li>Time: 2023-11-28 08:15:15, Source IP: 192.168.1.6, Destination IP: 203.0.113.9, Protocol: UDP, Length: 128, Info: DNS Query</li>
+            <li>Time: 2023-11-28 08:17:40, Source IP: 203.0.113.10, Destination IP: 192.168.1.7, Protocol: TCP, Length: 1024, Info: GET /page1.html</li>
+            <li>Time: 2023-11-28 08:20:05, Source IP: 192.168.1.8, Destination IP: 203.0.113.11, Protocol: ICMP, Length: 64, Info: Ping Request</li>
+            <li>Time: 2023-11-28 08:22:30, Source IP: 203.0.113.12, Destination IP: 192.168.1.9, Protocol: TCP, Length: 512, Info: Data transfer</li>
+            <li>Time: 2023-11-28 08:25:10, Source IP: 192.168.1.10, Destination IP: 203.0.113.13, Protocol: HTTP, Length: 768, Info: POST /submitForm</li>
+            <li>Time: 2023-11-28 08:28:45, Source IP: 203.0.113.14, Destination IP: 192.168.1.11, Protocol: UDP, Length: 256, Info: DNS Response</li>
+            <li>Time: 2023-11-28 08:31:20, Source IP: 192.168.1.12, Destination IP: 203.0.113.15, Protocol: TCP, Length: 128, Info: SYN</li>
+            <li>Time: 2023-11-28 08:34:00, Source IP: 203.0.113.16, Destination IP: 192.168.1.13, Protocol: HTTP, Length: 512, Info: GET /page2.html</li>
+        </ul>
+
+        <a href="/" class="btn btn-primary">Back to Home</a>
+
+        <!-- Include any additional styling or scripts if needed -->
+    </div>
+</body>
+</html>

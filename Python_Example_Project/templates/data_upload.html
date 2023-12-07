@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Upload and Preprocessing</title>
+    <!-- Add your styling or include Bootstrap if needed -->
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Data Upload and Preprocessing</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li class="alert alert-{{ message[1] }}">{{ message[0] }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form method="post" action="/data_upload" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label for="{{ form.dataset.id }}">Dataset:</label>
+                {{ form.dataset(class="form-control", required="required") }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Upload and Preprocess</button>
+        </form>
+    </div>
+
+    <!-- Add your scripts or additional styling if needed -->
+</body>
+</html>

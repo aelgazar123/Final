@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Data Upload</title>
+</head>
+<body class="dark-mode">
+    <div class="container mt-5">
+        <h1>Data Upload</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li class="alert alert-{{ message[1] }}">{{ message[0] }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form method="post" action="/upload_dataset" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label for="{{ form.file.id }}">Dataset:</label>
+                {{ form.file(class="form-control", required="required") }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Upload Dataset</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #222; /* Dark background color */
+            color: #fff; /* Light text color */
+        }
+
+        /* Add styles for your banner */
+        .banner {
+            width: 100%;
+            height: 200px; /* Adjust the height as needed */
+            background: url('/static/images/banner_image.jpg') center/cover no-repeat;
+            /* Use background-size: cover; for a responsive background image */
+        }
+
+        /* Add any additional styles for your content */
+        .container {
+            padding-top: 20px; /* Adjust the padding as needed */
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Adjust the margin as needed */
+        }
+
+        .btn-primary {
+            margin-top: 20px; /* Adjust the margin as needed */
+        }
+
+        .mt-4 {
+            margin-top: 40px; /* Adjust the margin as needed */
+        }
+
+        .mt-5 {
+            margin-top: 50px; /* Adjust the margin as needed */
+        }
+
+        /* Add styles for dark mode */
+        .dark-mode {
+            background: #333; /* Dark background color for dark mode */
+            color: #fff; /* Light text color for dark mode */
+        }
+    </style>
+    <title>Flask ML App</title>
+</head>
+<body class="dark-mode">
+    <!-- Banner section -->
+    <div class="banner"></div>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Flask Machine Learning App</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li class="alert alert-{{ message[1] }}">{{ message[0] }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form method="post" action="/predict">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label for="{{ form.feature1.id }}">Feature 1:</label>
+                {{ form.feature1(class="form-control", required="required") }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.feature2.id }}">Feature 2:</label>
+                {{ form.feature2(class="form-control", required="required") }}
+            </div>
+            <!-- Add more input fields as needed -->
+
+            <button type="submit" class="btn btn-primary">Predict</button>
+
+            <!-- Add the new button here -->
+            <a href="/network_traffic" class="btn btn-info">View Network Traffic</a>
+
+            <!-- Add the user profile link -->
+            <a href="/profile" class="btn btn-success">My Profile</a>
+
+            <!-- Add the new button here -->
+            <a href="/upload_dataset" class="btn btn-warning">Upload Dataset</a>
+        </form>
+
+        {% if prediction_text %}
+            <h2 class="mt-4">Prediction Result: {{ prediction_text }}</h2>
+        {% endif %}
+
+        <!-- Mock packet display section -->
+        <div class="mt-4">
+            <h2>Network Traffic:</h2>
+            <ul id="packet-list"></ul>
+        </div>
+
+        <div class="mt-5">
+            {% if current_user.is_authenticated %}
+                <a href="/logout" class="btn btn-danger">Logout</a>
+            {% else %}
+                <a href="/login" class="btn btn-success">Login</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- ... (your existing script tags) ... -->
+</body>
+</html>

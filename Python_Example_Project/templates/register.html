@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h1 class="mb-4">Register</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="alert alert-{{ message[1] }}">{{ message[0] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="post" action="/register">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <label for="{{ form.username.id }}">Username:</label>
+            {{ form.username(class="form-control", required="required") }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password.id }}">Password:</label>
+            {{ form.password(class="form-control", required="required") }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.confirm_password.id }}">Confirm Password:</label>
+            {{ form.confirm_password(class="form-control", required="required") }}
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+
+    <div class="mt-5">
+        <p>Already have an account? <a href="/login">Login here</a>.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
